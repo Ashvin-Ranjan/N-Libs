@@ -1,0 +1,13 @@
+class Hex [value:int] {
+	let pub toString = [] -> str {
+		return "" // Figure out how to do this
+	}
+
+	let pub toInt = [] -> int {
+		return value
+	}
+}
+
+let pub fromString = [s:str] -> Hex {
+	return Hex()
+}
