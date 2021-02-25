@@ -1,7 +1,7 @@
 class Bit [value:int] {
 	let internal = value % 2
 	let pub toString = [] -> str {
-		return intInBase10(interal)
+		return intInBase10(internal)
 	}
 
 	let pub toInt = [] -> int {
@@ -12,15 +12,15 @@ class Bit [value:int] {
 class Byte [value:list[Bit]] {
 	let pub toString = [] -> str {
 		let out = ""
-		for i len(value) {
-			var out = out + default(Bit(0), itemAt(i, value)).toString()
-		}
+		value
+			|> filterMap(([thing: Bit] -> maybe[str] {
+					var out = out + thing.toString()
+				 	return yes(thing.toString())
+				 }))
 		return out
 	}
 
-	let pub toInt = [] -> int {
-		return value
-	}
+	// TODO: to int
 }
 
 // TODO: Byte and Bit from string
