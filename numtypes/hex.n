@@ -8,6 +8,4 @@ class Hex [value:int] {
 	}
 }
 
-let pub fromString = [s:str] -> Hex {
-	return Hex()
-}
+// Hex from string

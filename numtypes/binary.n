@@ -1,0 +1,26 @@
+class Bit [value:int] {
+	let internal = value % 2
+	let pub toString = [] -> str {
+		return intInBase10(interal)
+	}
+
+	let pub toInt = [] -> int {
+		return internal
+	}
+}
+
+class Byte [value:list[Bit]] {
+	let pub toString = [] -> str {
+		let out = ""
+		for i len(value) {
+			var out = out + default(Bit(0), itemAt(i, value)).toString()
+		}
+		return out
+	}
+
+	let pub toInt = [] -> int {
+		return value
+	}
+}
+
+// TODO: Byte and Bit from string
