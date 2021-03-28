@@ -8,4 +8,4 @@ class Hex [value:int] {
 	}
 }
 
-// Hex from string
+// TODO: Hex from string

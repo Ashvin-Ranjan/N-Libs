@@ -12,15 +12,17 @@ class Bit [value:int] {
 class Byte [value:list[Bit]] {
 	let pub toString = [] -> str {
 		let out = ""
-		value
-			|> filterMap(([thing: Bit] -> maybe[str] {
-					var out = out + thing.toString()
-				 	return yes(thing.toString())
-				 }))
+		for (bit in value) {
+			var out = out + bit.toString()
+		}
 		return out
 	}
 
-	// TODO: to int
+
+	let pub toInt = [] -> int {
+		let out = 0
+		return 0
+	}
 }
 
 // TODO: Byte and Bit from string
