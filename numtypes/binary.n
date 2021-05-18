@@ -18,6 +18,9 @@ class Byte [value:list[Bit]] {
 		return out
 	}
 
+	let pub bits = [] -> list[Bit] {
+		return value
+	}
 
 	let pub toInt = [] -> int {
 		let out = 0
@@ -25,4 +28,31 @@ class Byte [value:list[Bit]] {
 	}
 }
 
-// TODO: Byte and Bit from string
+let pub byteFromString = [val:str] -> maybe[Byte] {
+	let bits:list[Bit] = []
+	for (i in range(len(val) - 1, -1, -1)) {
+		let character:char = val |> charAt(i)
+		if (character == \{0} || character == \{1}) {
+			var bits = bits |> append(Bit(character))
+		} else {
+			return none
+		}
+	}
+
+	return Byte(bits)
+}
+
+let pub byteFromInt = [val:int] -> Byte {
+	let reverse = []
+	let tracker = val
+	for (i in range(0, (val/2) + 1, 1)) {
+		var reverse |> append(Bit(tracker % 2))
+		var tracker = tracker/2
+	}
+
+	let out = []
+	for (i in range(len(reverse) - 1, -1, -1)) {
+		var out = out |> append(reverse |> itemAt(i))
+	}
+	return Byte(out)
+}
