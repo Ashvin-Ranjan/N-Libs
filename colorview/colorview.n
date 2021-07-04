@@ -1,0 +1,48 @@
+// Mostly taken from https://github.com/tartley/colorama which N uses
+// Made for v1.3.0
+
+let pub codeToColor = [code:int] -> str {
+	return "\u{1b}[" + intInBase10(code) + "m"
+}
+
+let pub codes = {
+	BLACK           : 30
+	RED             : 31
+	GREEN           : 32
+	YELLOW          : 33
+	BLUE            : 34
+	MAGENTA         : 35
+	CYAN            : 36
+	WHITE           : 37
+	RESET           : 39
+
+	// These are fairly well supported, but not part of the standard.
+	LIGHTBLACK_EX   : 90
+	LIGHTRED_EX     : 91
+	LIGHTGREEN_EX   : 92
+	LIGHTYELLOW_EX  : 93
+	LIGHTBLUE_EX    : 94
+	LIGHTMAGENTA_EX : 95
+	LIGHTCYAN_EX    : 96
+	LIGHTWHITE_EX   : 97
+}
+
+let pub BLACK           = codeToColor(           codes.BLACK)
+let pub RED             = codeToColor(             codes.RED)
+let pub GREEN           = codeToColor(           codes.GREEN)
+let pub YELLOW          = codeToColor(          codes.YELLOW)
+let pub BLUE            = codeToColor(            codes.BLUE)
+let pub MAGENTA         = codeToColor(         codes.MAGENTA)
+let pub CYAN            = codeToColor(            codes.CYAN)
+let pub WHITE           = codeToColor(           codes.WHITE)
+let pub RESET           = codeToColor(           codes.RESET)
+
+// Non standard
+let pub LIGHTBLACK_EX   = codeToColor(   codes.LIGHTBLACK_EX)
+let pub LIGHTRED_EX     = codeToColor(     codes.LIGHTRED_EX)
+let pub LIGHTGREEN_EX   = codeToColor(   codes.LIGHTGREEN_EX)
+let pub LIGHTYELLOW_EX  = codeToColor(  codes.LIGHTYELLOW_EX)
+let pub LIGHTBLUE_EX    = codeToColor(    codes.LIGHTBLUE_EX)
+let pub LIGHTMAGENTA_EX = codeToColor( codes.LIGHTMAGENTA_EX)
+let pub LIGHTCYAN_EX    = codeToColor(    codes.LIGHTCYAN_EX)
+let pub LIGHTWHITE_EX   = codeToColor(   codes.LIGHTWHITE_EX)
